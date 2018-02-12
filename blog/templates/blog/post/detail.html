@@ -11,7 +11,8 @@
     <p class="date">
         Published {{ post.publish }} by {{ post.author }}
     </p>
-    {{ post.body|linebreaks }}
+    {# {{ post.body|linebreaks }} #}
+    {{ post.body|markdown }}
 
     <!-- Share link -->
     <p>
@@ -55,8 +56,7 @@
                 Comment {{ forloop.counter }} by {{ comment.name }}
                 {{ comment.created }}
             </p>
-            {# {{ comment.body|linebreaks }} #}
-            {{ comment.body|markdown }}
+            {{ comment.body|linebreaks }}
         </div>
     {% empty %}
         <p>There are no comments yet.</p>
